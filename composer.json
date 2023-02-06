@@ -1,0 +1,16 @@
+{
+    "name": "tentee-reservation/wordpress-reservation",
+    "type": "wordpress-plugin",
+    "autoload": {
+        "psr-4": {
+            "TenteeReservation\\WordpressReservation\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tentee Global",
+            "email": "support@tenteeglobal.com"
+        }
+    ],
+    "require": {}
+}
