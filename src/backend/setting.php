@@ -251,7 +251,7 @@ if(! function_exists('IATEN_get_Current_Holidays')){
             </li>');
         }
         $iaten_content .= "</ul>";
-        echo $iaten_content;
+        echo esc_html($iaten_content);
     }
 }
 
@@ -261,9 +261,9 @@ if(! function_exists('IATEN_get_Current_Holidays')){
  
 if(! function_exists('IATEN_manage_Event_Holidays')){    
     function IATEN_manage_Event_Holidays() {
-        echo "<p>";
+        echo esc_html("<p>");
         _e("Let's configure your holidays planning", 'instant-appointment');
-        echo "</p>";
+        echo esc_html("</p>");
     }
 }
 
@@ -279,8 +279,8 @@ if(! function_exists('IATEN_Edit_email_title_text')){
         if( isset( $options['edit_mail_title']) ) {
             $title = esc_html( $options['edit_mail_title']);
         }
-        echo "<input id='wreservation_event_options_edit_mail_title' name='wreservation_event_options[edit_mail_title]'
-        type='text' value='" .$title . "'/> ";
+        echo esc_html("<input id='wreservation_event_options_edit_mail_title' name='wreservation_event_options[edit_mail_title]'
+        type='text' value='" .$title . "'/> ");
     }
 }
 
@@ -297,7 +297,7 @@ if(! function_exists('IATEN_Edit_email_content_text')){
         if( isset( $options['edit_mail_content']) ) {
             $content = esc_html( $options['edit_mail_content']);
         }
-        echo "<textarea name='wreservation_event_options[edit_mail_content]' id='wreservation_event_options_edit_mail_content' cols='30' rows='10'>" . esc_attr( $content ) . "</textarea>";
+        echo esc_html("<textarea name='wreservation_event_options[edit_mail_content]' id='wreservation_event_options_edit_mail_content' cols='30' rows='10'>" . esc_attr( $content ) . "</textarea>");
     }
 }
 
@@ -308,9 +308,9 @@ if(! function_exists('IATEN_Edit_email_content_text')){
 
 if(! function_exists('IATEN_Edit_email_setup_section_text')){    
     function IATEN_Edit_email_setup_section_text() {
-        echo '<p>';
+        echo esc_html(esc_html('<p>'));
         esc_html_e('Configure the default message for booking and appointment edition alerts!','instant-appointment');
-        echo '</p>';
+        echo esc_html('</p>');
     }
 }
 
@@ -328,7 +328,7 @@ if(! function_exists('IATEN_cancel_email_content_text')){
         if( isset( $options['cancel_mail_content']) ) {
             $content = esc_html( $options['cancel_mail_content']);
         }    
-        echo "<textarea name='wreservation_event_options[cancel_mail_content]' id='wreservation_event_options_cancel_mail_content' cols='30' rows='10'>" . esc_attr( $content ) . "</textarea>";
+        echo esc_html("<textarea name='wreservation_event_options[cancel_mail_content]' id='wreservation_event_options_cancel_mail_content' cols='30' rows='10'>" . esc_attr( $content ) . "</textarea>");
     }
 }
 
@@ -344,8 +344,8 @@ if(! function_exists('IATEN_cancel_email_title_text')){
         if( isset( $options['cancel_mail_title']) ) {
             $title = esc_html( $options['cancel_mail_title']);
         }
-        echo "<input id='wreservation_event_options_cancel_mail_title' name='wreservation_event_options[cancel_mail_title]'
-        type='text' value='" .  esc_attr_e( $title ) . "'/> ";
+        echo esc_html("<input id='wreservation_event_options_cancel_mail_title' name='wreservation_event_options[cancel_mail_title]'
+        type='text' value='" .  esc_attr_e( $title ) . "'/> ") ;
     }
 }
 
@@ -355,9 +355,9 @@ if(! function_exists('IATEN_cancel_email_title_text')){
 
 if(! function_exists('IATEN_cancel_email_setup_section_text')){    
     function IATEN_cancel_email_setup_section_text() {
-        echo '<p>';
+        echo esc_html('<p>');
         esc_html_e('Configure the default message for booking and appointment cancellation alerts!','instant-appointment');
-        echo '<p>';
+        echo esc_html('<p>');
     }
 }
 
@@ -373,7 +373,7 @@ if(! function_exists('IATEN_success_email_content_callback')){
         if( isset( $options['success_mail_content']) ) {
             $content = esc_html( $options['success_mail_content']);
         }
-        echo "<textarea name='wreservation_event_options[success_mail_content]' id='wreservation_event_options_success_mail_content' cols='30' rows='10'>" . esc_attr( $content ) . "</textarea>";
+        echo esc_html("<textarea name='wreservation_event_options[success_mail_content]' id='wreservation_event_options_success_mail_content' cols='30' rows='10'>" . esc_attr( $content ) . "</textarea>");
     }
 }
 
@@ -388,8 +388,8 @@ if(! function_exists('IATEN_success_email_title_callback')){
         if( isset( $options['success_mail_title']) ) {
             $title = esc_html( $options['success_email_title']);
         }
-        echo "<input id='wreservation_event_options_success_email_title' name='wreservation_event_options[success_email_title]'
-        type='text' value='" . esc_attr_e( $title ) . "'/> ";
+        echo esc_html("<input id='wreservation_event_options_success_email_title' name='wreservation_event_options[success_email_title]'
+        type='text' value='" . esc_attr_e( $title ) . "'/> ");
     }
 }
 
@@ -399,9 +399,9 @@ if(! function_exists('IATEN_success_email_title_callback')){
 
 if(! function_exists('IATEN_success_email_setup_section_text')){    
     function IATEN_success_email_setup_section_text() {
-        echo '<p>';
+        echo esc_html('<p>');
         esc_html_e('Configure the default message for reservation and appointment alerts!','instant-appointment');
-        echo '<p>';
+        echo esc_html('<p>');
     }
 }
 
@@ -421,9 +421,9 @@ if(! function_exists('IATEN_Gutenberg_plugin_symbole_callback')){
         if( isset( $options["gutenberg" ] ) ) {
             $iaten_check = 'checked';
         }
-        echo "<input type='checkbox' id='wreservation_event_options_gutenberg' name='wreservation_event_options[gutenberg]' value='checked' ".$iaten_check."/>"; 
+        echo esc_html("<input type='checkbox' id='wreservation_event_options_gutenberg' name='wreservation_event_options[gutenberg]' value='checked' ".$iaten_check."/>"); 
         esc_html_e('Use the Guntenberg editor to manage your events','instant-appointment');
-        echo "<span></span>";
+        echo esc_html("<span></span>");
     }  
 }
 
@@ -441,9 +441,9 @@ if(! function_exists('IATEN_api_plugin_symbole_callback')){
         if( isset( $options["apis" ] ) ) {
             $iaten_check = 'checked';
         }
-        echo "<input type='checkbox' id='wreservation_event_options_apis' name='wreservation_event_options[apis]' value='c' ".$iaten_check."/> ";
+        echo esc_html("<input type='checkbox' id='wreservation_event_options_apis' name='wreservation_event_options[apis]' value='c' ".$iaten_check."/> ");
         esc_html_e('Allow APIs to access your events.', 'instant-appointment');
-        echo "<span></span>";
+        echo esc_html("<span></span>");
     }
 }
 
@@ -455,9 +455,9 @@ if(! function_exists('IATEN_api_plugin_symbole_callback')){
  */
 if(! function_exists('IATEN_advanced_option_setup_section_text')){    
     function IATEN_advanced_option_setup_section_text() {
-        echo '<p>';
+        echo esc_html('<p>');
         esc_html_e('Configure default advanced options.','instant-appointment');
-        echo '</p>';
+        echo esc_html('</p>');
     }
 }
 
@@ -475,8 +475,8 @@ if(! function_exists('IATEN_currency_plugin_symbole_callback')){
         if( isset( $options['symbole']) ) {
             $symbole = esc_html( $options['symbole']);
         }
-        echo "<input id='wreservation_event_options_symbole' name='wreservation_event_options[symbole]'
-        type='text' value='" . esc_attr_e( $symbole ) . "'/> ";
+        echo esc_html("<input id='wreservation_event_options_symbole' name='wreservation_event_options[symbole]'
+        type='text' value='" . esc_attr_e( $symbole ) . "'/> ");
     }
 }
 
@@ -488,9 +488,9 @@ if(! function_exists('IATEN_currency_plugin_symbole_callback')){
  */
 if(! function_exists('IATEN_Curency_setup_section_text')){    
     function IATEN_Curency_setup_section_text() {
-        echo '<p>';
+        echo esc_html('<p>');
         esc_html_e('Configure default currency options.','instant-appointment');
-        echo '</p>';
+        echo esc_html('</p>');
     }
 }
 
@@ -508,8 +508,8 @@ if(! function_exists('IATEN_currency_plugin_name_callback')){
         if( isset( $options['name']) ) {
             $name = esc_html( $options['name']);
         }
-        echo "<input id='wreservation_event_options_name' name='wreservation_event_options[name]'
-        type='text' value='" . esc_attr_e( $name ) . "'/> ";
+        echo esc_html("<input id='wreservation_event_options_name' name='wreservation_event_options[name]'
+        type='text' value='" . esc_attr_e( $name ) . "'/> ");
     }
 }
 

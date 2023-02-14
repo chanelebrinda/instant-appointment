@@ -91,7 +91,7 @@
         $lim_p = isset($custom['event_limit_participants'][0])? esc_attr($custom['event_limit_participants'][0]): 1;
         $locat = isset($custom['event_location'][0])? esc_attr($custom['event_location'][0]) : '';
         $adres = isset($custom['event_adress'][0])? esc_attr($custom['event_adress'][0] ): '';
-        $durat = isset($custom['session_duration'][0])? esc_attr($custom['session_duration'][0]) : 30;
+        $durat = isset($custom['session_duration'][0])? intval($custom['session_duration'][0]) : 30;
         $lim_d = isset($custom['limit_date_schedule'][0])? esc_attr($custom['limit_date_schedule'][0]) : 7;
         $lim_be = isset($custom['time_before_session'][0])? esc_attr($custom['time_before_session'][0]) : 0;
         $lim_af = isset($custom['time_after_session'][0])? esc_attr($custom['time_after_session'][0] ): 0;
@@ -105,23 +105,23 @@
                         <table class="form-table">
                             <tr>
                                 <th scope="row"><label for="star_day"><?php esc_html_e("Start at * :",'instant-appointment') ?></label></th>
-                                <td><input type="date"  id = "event_begining_day" name = "event_begining_day" required value = "<?php esc_html_e($b_day) ?>" ></td>
+                                <td><input type="date"  id = "event_begining_day" name = "event_begining_day" required value = "<?php echo esc_html($b_day) ?>" ></td>
                             </tr>
                             <tr>
                                 <th scope="row"><label for="end_day"><?php esc_html_e("End at : ",'instant-appointment') ?></label></th>
-                                <td><input type="date" id = "event_ending_day" name = "event_ending_day" value = "<?php esc_html_e($e_day) ?>" ></td>
+                                <td><input type="date" id = "event_ending_day" name = "event_ending_day" value = "<?php echo esc_html($e_day) ?>" ></td>
                             </tr>
                             <tr>
                                 <th scope="row"><label for="limit_part"><?php esc_html_e("Maximum participants * :",'instant-appointment') ?></label></th>
-                                <td><input type="number" id = "event_limit_participants" name = "event_limit_participants" required value = "<?php esc_html_e($lim_p) ?>" ><label for="limit_part"> par séance</label></td>
+                                <td><input type="number" id = "event_limit_participants" name = "event_limit_participants" required value = "<?php echo esc_html($lim_p) ?>" ><label for="limit_part"> par séance</label></td>
                             </tr>
                             <tr>
                                 <th scope="row"><label for="limit_sched" ><?php esc_html_e("User can make reservation * : ",'instant-appointment') ?></label></th>
-                                <td><input type="number" id = "limit_date_schedule"  name = "limit_date_schedule" required value = "<?php esc_html_e($lim_d) ?>" ><label for="limit_sched"> jours dans le future</label></td>
+                                <td><input type="number" id = "limit_date_schedule"  name = "limit_date_schedule" required value = "<?php echo esc_html($lim_d) ?>" ><label for="limit_sched"> jours dans le future</label></td>
                             </tr>
                             <tr>
                                 <th scope="row"><label for="price"><?php esc_html_e("Price * :",'instant-appointment') ?></label></th>
-                                <td><input type="number" id = "event_price" name = "event_price" required value = "<?php esc_html_e($price) ?>" ><label for="event_price"> <?php IATEN_CURRENCY_NAME." (".IATEN_CURRENCY_SYMBOL.")" ?></label></td>
+                                <td><input type="number" id = "event_price" name = "event_price" required value = "<?php echo esc_html($price) ?>" ><label for="event_price"> <?php IATEN_CURRENCY_NAME." (".IATEN_CURRENCY_SYMBOL.")" ?></label></td>
                             </tr>
                         </table>
                     </div>
@@ -147,19 +147,19 @@
                             </tr>
                             <tr>
                                 <th scope="row"><label for="event_adress"> <?php esc_html_e("Adress * : ",'instant-appointment') ?></label></th>
-                                <td><input type="text" id = "event_adress" required name = "event_adress" value = "<?php esc_html_e($adres) ?>" ><label for="event_adress"><?php esc_html_e("Place, Phone number or URL",'instant-appointment') ?></label></td>
+                                <td><input type="text" id = "event_adress" required name = "event_adress" value = "<?php echo esc_html($adres) ?>" ><label for="event_adress"><?php esc_html_e("Place, Phone number or URL",'instant-appointment') ?></label></td>
                             </tr>
                             <tr>
                                 <th scope="row"><label for="session_duration"> <?php esc_html_e("Session Duration * :",'instant-appointment') ?></label></th>
-                                <td><input type="number" id = "session_duration" name = "session_duration" required value = "<?php esc_html_e($durat) ?>" <?php if($repeat != "Every week") echo esc_html("disabled")?>><label for="session_duration"> <?php esc_html_e("Minutes",'instant-appointment') ?> </label></td>
+                                <td><input type="number" id = "session_duration" name = "session_duration" required value = "<?php echo esc_html($durat) ?>" <?php if($repeat != "Every week")  esc_html("disabled")?>><label for="session_duration"> <?php esc_html_e("Minutes",'instant-appointment') ?> </label></td>
                             </tr>
                             <tr>
                                 <th scope="row"><label for="time_before_session" ><?php esc_html_e("Previous * :",'instant-appointment') ?></label></th>
-                                <td><input type="number" id = "time_before_session"  name = "time_before_session" required value = "<?php esc_html_e($lim_be) ?>" <?php if($repeat != "Every week") echo esc_html("disabled")?>><label for="time_before_session" > <?php esc_html_e("Minute(s) before session",'instant-appointment') ?></label></td>
+                                <td><input type="number" id = "time_before_session"  name = "time_before_session" required value = "<?php echo esc_html($lim_be) ?>" <?php if($repeat != "Every week") echo esc_html("disabled")?>><label for="time_before_session" > <?php esc_html_e("Minute(s) before session",'instant-appointment') ?></label></td>
                             </tr>
                             <tr>
                                 <th scope="row"><label for="time_after_session" ><?php esc_html_e("Previous * :",'instant-appointment') ?></label></th>
-                                <td><input type="number" id = "time_after_session"  name = "time_after_session" required value = "<?php esc_html_e($lim_af) ?>" <?php if($repeat != "Every week") echo esc_html("disabled")?> ><label for="time_after_session"> <?php esc_html_e("Minute(s) after session",'instant-appointment') ?></label></td>
+                                <td><input type="number" id = "time_after_session"  name = "time_after_session" required value = "<?php echo esc_html($lim_af) ?>" <?php if($repeat != "Every week") echo esc_html("disabled")?> ><label for="time_after_session"> <?php esc_html_e("Minute(s) after session",'instant-appointment') ?></label></td>
                             </tr>
                         </table>
                     </div>
@@ -245,25 +245,25 @@ if(! function_exists('IATEN_reservation_weekly_hours_metabox')){
                 <th scope="row">
                     <label for="event_starting_hour"> <?php esc_html_e("Start time ",'instant-appointment') ?></label>
                 </th>
-                <td><input type="time" name="event_starting_hour" id="event_starting_hour" value="<?php esc_html_e($start_at )?>" required></td>
+                <td><input type="time" name="event_starting_hour" id="event_starting_hour" value="<?php echo esc_html($start_at )?>" required></td>
             </tr>
             <tr>
                 <th scope="row">
                     <label for="event_starting_pause"> <?php esc_html_e("Start of the break",'instant-appointment') ?></label>
                 </th>
-                <td><input type="time" name="event_starting_pause" id="event_starting_pause" value="<?php esc_html_e($pause_start_at) ?>" required></td>
+                <td><input type="time" name="event_starting_pause" id="event_starting_pause" value="<?php echo esc_html($pause_start_at) ?>" required></td>
             </tr>
             <tr>
                 <th scope="row">
                     <label for="event_ending_pause"> <?php esc_html_e("End of the break",'instant-appointment') ?></label>
                 </th>
-                <td><input type="time" name="event_ending_pause" id="event_ending_pause" value="<?php esc_html_e($pause_end_at) ?>" required></td>
+                <td><input type="time" name="event_ending_pause" id="event_ending_pause" value="<?php echo esc_html($pause_end_at) ?>" required></td>
             </tr>
             <tr>
                 <th scope="row">
                     <label for="event_ending_hour"> <?php esc_html_e("End time",'instant-appointment') ?></label>
                 </th>
-                <td><input type="time" name="event_ending_hour" id="event_ending_hour" value="<?php esc_html_e($end_at) ?>" required></td>
+                <td><input type="time" name="event_ending_hour" id="event_ending_hour" value="<?php echo esc_html($end_at) ?>" required></td>
             </tr>
         </table>
         <?php

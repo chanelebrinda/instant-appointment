@@ -21,16 +21,16 @@
 ?>
 <?php if(have_posts()):while(have_posts()): the_post(); ?> 
 <div class="single-event_post">
-    <div class="event_featured_image" style="background-image: url('<?php echo IATEN_reservation_event_featured_image();?>')"></div>
+    <div class="event_featured_image" style="background-image: url('<?php echo esc_html_( IATEN_reservation_event_featured_image());?>')"></div>
     <div class="single-event_title">
         <h2 id = "post-title" class="post-title" title="<?php the_ID(); ?>"><i class="fa fa-calendar "></i> <?php the_title(); ?></h2>
         <div class="single_event_details">
-            <span class="event_begining_time"><?php esc_html($prefixe_date).' '.esc_html_e($begining_date).' '.AT.esc_html_e($heure_debut)?></span>
-            <span class="event_duration"><i class="fa fa-clock-o"></i> <?php ' '.esc_html_e($duree).' '?></span>
-            <span class="event_location"><i class="fa fa-clock-o"></i><?php ' '.esc_html_e($location).' ' ?></span>
-            <span class="event_adress"><i class="fa fa-map-marker"></i><?php ' '.esc_html_e($adresse).' '?></span>
-            <span class="event_participant"><i class="fa fa-clock-o"></i><?php ' '.esc_html_e($maximum_participant).' '?></span>
-            <span class="event_repetition"><i class="fa fa-clock-o"></i><?php ' '.esc_html_e($eventRepetition).' '?></span>
+            <span class="event_begining_time"><?php echo esc_html($prefixe_date).' '.esc_html($begining_date).' '.AT.esc_html($heure_debut)?></span>
+            <span class="event_duration"><i class="fa fa-clock-o"></i> <?php echo' '. esc_html($duree).' '?></span>
+            <span class="event_location"><i class="fa fa-clock-o"></i><?php echo' '.esc_html($location).' ' ?></span>
+            <span class="event_adress"><i class="fa fa-map-marker"></i><?php echo' '.esc_html($adresse).' '?></span>
+            <span class="event_participant"><i class="fa fa-clock-o"></i><?php echo ' '.esc_html($maximum_participant).' '?></span>
+            <span class="event_repetition"><i class="fa fa-clock-o"></i><?php echo' '.esc_html($eventRepetition).' '?></span>
         </div>
     </div>    
     <div class="single-event_calandar ">
