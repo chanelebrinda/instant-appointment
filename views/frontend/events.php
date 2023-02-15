@@ -32,7 +32,7 @@ if(! function_exists('IATEN_reservation_display_events')){
 				$eventRepetition = get_post_meta($post->ID, 'is_repeat_event', true);
 				$prefixe_date = $eventRepetition == "Every week" ? __("Start at ", 'instant-appointment') : __("The", 'instant-appointment') ;
 				$date = empty(get_post_meta($post->ID, 'event_begining_day', true))? $notspeci : get_post_meta($post->ID, 'event_begining_day', true);
-				$heure = empty(get_post_meta($post->ID, 'event_starting_hour', true))? "" : AT.get_post_meta($post->ID, 'event_starting_hour', true);
+				$heure = empty(get_post_meta($post->ID, 'event_starting_hour', true))? "" : IATEN_AT.get_post_meta($post->ID, 'event_starting_hour', true);
 				$adresse = empty(get_post_meta($post->ID, 'event_location', true))? $notspeci : get_post_meta($post->ID, 'event_location', true);
 				$titre = get_the_title();
 

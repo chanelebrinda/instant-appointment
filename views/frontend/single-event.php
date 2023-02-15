@@ -12,11 +12,11 @@
     $begining_date = empty(get_post_meta($post->ID, 'event_begining_day', true))? IATEN_NOT_SPECIFY : get_post_meta($post->ID, 'event_begining_day', true);
     $ending_date = empty(get_post_meta($post->ID, 'event_ending_day', true))? IATEN_NOT_SPECIFY : get_post_meta($post->ID, 'event_ending_day', true);
     $heure_debut = empty(get_post_meta($post->ID, 'event_starting_hour', true))? "" : ' '.get_post_meta($post->ID, 'event_starting_hour', true);
-    $heure_fin = empty(get_post_meta($post->ID, 'event_ending_hour', true))? "" : AT.get_post_meta($post->ID, 'event_ending_hour', true);
+    $heure_fin = empty(get_post_meta($post->ID, 'event_ending_hour', true))? "" : IATEN_AT.get_post_meta($post->ID, 'event_ending_hour', true);
     $location = empty(get_post_meta($post->ID, 'event_location', true))? IATEN_NOT_SPECIFY : get_post_meta($post->ID, 'event_location', true);
     $adresse = empty(get_post_meta($post->ID, 'event_adress', true))? IATEN_NOT_SPECIFY : get_post_meta($post->ID, 'event_adress', true);
     $titre = get_the_title();
-    $duree = ($eventRepetition == "Every week")? ' '.AT.get_post_meta($post->ID, 'session_duration', true)." Minutes" : 'De '.$heure_debut.' '.$heure_fin;
+    $duree = ($eventRepetition == "Every week")? ' '.IATEN_AT.get_post_meta($post->ID, 'session_duration', true)." Minutes" : 'De '.$heure_debut.' '.$heure_fin;
     
 ?>
 <?php if(have_posts()):while(have_posts()): the_post(); ?> 
@@ -25,7 +25,7 @@
     <div class="single-event_title">
         <h2 id = "post-title" class="post-title" title="<?php the_ID(); ?>"><i class="fa fa-calendar "></i> <?php the_title(); ?></h2>
         <div class="single_event_details">
-            <span class="event_begining_time"><?php echo esc_html($prefixe_date).' '.esc_html($begining_date).' '.AT.esc_html($heure_debut)?></span>
+            <span class="event_begining_time"><?php echo esc_html($prefixe_date).' '.esc_html($begining_date).' '.IATEN_AT.esc_html($heure_debut)?></span>
             <span class="event_duration"><i class="fa fa-clock-o"></i> <?php echo' '. esc_html($duree).' '?></span>
             <span class="event_location"><i class="fa fa-clock-o"></i><?php echo' '.esc_html($location).' ' ?></span>
             <span class="event_adress"><i class="fa fa-map-marker"></i><?php echo' '.esc_html($adresse).' '?></span>

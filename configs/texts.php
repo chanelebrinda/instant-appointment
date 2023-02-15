@@ -13,5 +13,5 @@ __('Sunday', 'instant-appointment')));
 
 
 define("IATEN_NOT_SPECIFY", __('Not Specify' , 'instant-appointment'));
-define("AT", __(" at ", 'instant-appointment'));
+define("IATEN_AT", __(" at ", 'instant-appointment'));
 
